@@ -60,6 +60,9 @@ async function initApp() {
     try { appVersion = await window.romAPI.getVersion(); } catch {}
   }
 
+  // Expose version globally so all components can use it
+  window.appVersion = appVersion;
+
   // Update titlebar version
   const tbVer = document.getElementById('tbVersion');
   if (tbVer) tbVer.textContent = 'v' + appVersion + ' -- AFJORD';
@@ -85,7 +88,10 @@ async function initApp() {
   wireIPC();
 
   // Initial log
-  window.ActivityLog.addLog('INFO', `ROM Scraper v${appVersion} ready. Select a preset or enter a URL.`, 'lvl-info');
+  window.ActivityLog.addLog('INFO', `AFJORD v${appVersion} ready. Select a preset or enter a URL.`, 'lvl-info');
+
+  // Show one-time rebrand notice (only triggers if not yet seen for this version)
+  setTimeout(() => window.WhatsNew && window.WhatsNew.show(), 600);
 }
 
 // Boot

@@ -1,13 +1,13 @@
 # Legal Disclaimer & Acceptable Use Policy
 
-**ROM Scraper / AFJORD v1.0.8**
+**AFJORD v1.0.8**
 **Last Updated: March 2026**
 
 ---
 
 ## Purpose
 
-ROM Scraper (codename "AFJORD") is a desktop media collection and content migration tool developed for internal use by Ryan's Outdoor Media. It is designed to assist with legitimate tasks such as:
+AFJORD is a desktop media collection and content migration tool. It is designed to assist with legitimate tasks such as:
 
 - Migrating media assets between websites during redesigns or platform changes
 - Archiving publicly available content from your own web properties
@@ -16,21 +16,21 @@ ROM Scraper (codename "AFJORD") is a desktop media collection and content migrat
 
 ## User Responsibility
 
-**You, the user, are solely responsible for how you use this software.** By using ROM Scraper, you acknowledge and agree to the following:
+**You, the user, are solely responsible for how you use this software.** By using AFJORD, you acknowledge and agree to the following:
 
-1. **Compliance with Laws** — You will comply with all applicable local, state, national, and international laws and regulations, including but not limited to:
+1. **Compliance with Laws** -- You will comply with all applicable local, state, national, and international laws and regulations, including but not limited to:
    - The Computer Fraud and Abuse Act (CFAA) in the United States
    - The General Data Protection Regulation (GDPR) in the European Union
    - The Copyright Act and Digital Millennium Copyright Act (DMCA)
    - Any equivalent legislation in your jurisdiction
 
-2. **Terms of Service** — You are responsible for reviewing and complying with the Terms of Service, Terms of Use, and any other agreements governing the websites you interact with using this tool. Many websites explicitly prohibit automated access, scraping, or data collection in their terms.
+2. **Terms of Service** -- You are responsible for reviewing and complying with the Terms of Service, Terms of Use, and any other agreements governing the websites you interact with using this tool. Many websites explicitly prohibit automated access, scraping, or data collection in their terms.
 
-3. **Copyright & Intellectual Property** — You will not use this tool to download, copy, reproduce, or distribute copyrighted material without proper authorization from the rights holder. Downloading content does not grant you ownership or redistribution rights.
+3. **Copyright & Intellectual Property** -- You will not use this tool to download, copy, reproduce, or distribute copyrighted material without proper authorization from the rights holder. Downloading content does not grant you ownership or redistribution rights.
 
-4. **Personal Data & Privacy** — You will not use this tool to collect, harvest, or process personal data or personally identifiable information (PII) of any individual without their explicit consent and a lawful basis for processing under applicable privacy laws.
+4. **Personal Data & Privacy** -- You will not use this tool to collect, harvest, or process personal data or personally identifiable information (PII) of any individual without their explicit consent and a lawful basis for processing under applicable privacy laws.
 
-5. **Authorization** — You will only use this tool on websites and systems where you have explicit permission or legal right to perform automated data collection. Unauthorized access to computer systems is a criminal offense in most jurisdictions.
+5. **Authorization** -- You will only use this tool on websites and systems where you have explicit permission or legal right to perform automated data collection. Unauthorized access to computer systems is a criminal offense in most jurisdictions.
 
 ## Stealth & Anti-Detection Features
 
@@ -49,7 +49,7 @@ This software includes features designed to manage request patterns and HTTP hea
 
 ## Robots.txt & Rate Limiting
 
-ROM Scraper includes a "Respect robots.txt" option that is **enabled by default**. Users are strongly encouraged to:
+AFJORD includes a "Respect robots.txt" option that is **enabled by default**. Users are strongly encouraged to:
 
 - Keep this option enabled at all times
 - Set appropriate request delays (minimum 0.5 seconds recommended)
@@ -72,7 +72,7 @@ THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Limitation of Liability
 
-The developers of ROM Scraper:
+The developers of AFJORD:
 
 - Make no representations about the legality of scraping any particular website
 - Are not responsible for any legal consequences resulting from your use of this tool
@@ -81,7 +81,7 @@ The developers of ROM Scraper:
 
 ## Indemnification
 
-By using this software, you agree to indemnify and hold harmless the developers, contributors, and distributors of ROM Scraper from any claims, damages, losses, or expenses (including legal fees) arising from your use or misuse of this tool.
+By using this software, you agree to indemnify and hold harmless the developers, contributors, and distributors of AFJORD from any claims, damages, losses, or expenses (including legal fees) arising from your use or misuse of this tool.
 
 ## Ethical Use Guidelines
 
@@ -100,4 +100,4 @@ If you are a website operator and believe this tool is being used to access your
 
 ---
 
-**By downloading, installing, or using ROM Scraper, you acknowledge that you have read, understood, and agree to this disclaimer.**
+**By downloading, installing, or using AFJORD, you acknowledge that you have read, understood, and agree to this disclaimer.**

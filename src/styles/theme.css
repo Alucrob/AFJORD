@@ -1,36 +1,36 @@
 /* ═══════════════════════════════════════════════════
-   ROM SCRAPER v1.0.8 "AFJORD" — Sage Green Theme
+   AFJORD v1.0.8 — Black & Yellow Stealth Theme
    ═══════════════════════════════════════════════════ */
 :root {
-  /* Sage Green accent palette */
-  --accent:     #A8B895;
-  --accent2:    #B2C2A2;
-  --accent-dim: #5A6B4A;
-  --accent-glow: rgba(168, 184, 149, 0.35);
+  /* Yellow accent palette */
+  --accent:     #F0C230;
+  --accent2:    #FFD95C;
+  --accent-dim: #7A6218;
+  --accent-glow: rgba(240, 194, 48, 0.30);
 
-  /* Dark charcoal/slate backgrounds */
-  --bg-deep:    #1A1B1E;
-  --bg-panel:   #1E1F23;
-  --bg-card:    #232528;
-  --bg-input:   #2A2C30;
-  --bg-hover:   #333538;
+  /* Deep black backgrounds */
+  --bg-deep:    #0A0A0B;
+  --bg-panel:   #0E0E10;
+  --bg-card:    #131315;
+  --bg-input:   #1A1A1E;
+  --bg-hover:   #222226;
 
   /* Text */
-  --text-pri:   #E8EAF0;
-  --text-sec:   #9CA3B8;
-  --text-dim:   #555B70;
+  --text-pri:   #E8E8EC;
+  --text-sec:   #9898A8;
+  --text-dim:   #484858;
 
   /* Borders */
-  --border:     #2E3038;
-  --border-lt:  #3A3D48;
+  --border:     #1E1E24;
+  --border-lt:  #2A2A34;
 
   /* Semantic colors */
-  --success:    #6ECB8B;
-  --warning:    #E8C44A;
-  --error:      #E05555;
-  --info:       #6BA3E8;
-  --tip:        #A07CE0;
-  --agent:      #A8B895;
+  --success:    #3AD980;
+  --warning:    #F0C230;
+  --error:      #E04545;
+  --info:       #4A9AFF;
+  --tip:        #A070E0;
+  --agent:      #F0C230;
 
   /* Typography */
   --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -60,6 +60,6 @@ body {
 
 /* Selection */
 ::selection {
-  background: rgba(168, 184, 149, 0.3);
+  background: rgba(240, 194, 48, 0.25);
   color: var(--text-pri);
 }

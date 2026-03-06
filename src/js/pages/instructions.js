@@ -69,7 +69,7 @@ function render(container) {
 <div class="page-enter" style="flex:1;overflow-y:auto;padding:24px 32px;max-width:800px;margin:0 auto;width:100%;">
   <div style="margin-bottom:24px;">
     <h1 style="font-size:20px;font-weight:700;color:var(--text-pri);margin-bottom:4px;">Instructions &amp; Guide</h1>
-    <p style="font-size:12px;color:var(--text-sec);line-height:1.6;">Everything you need to know about using ROM Scraper v1.0.8 "AFJORD"</p>
+    <p style="font-size:12px;color:var(--text-sec);line-height:1.6;">Everything you need to know about using AFJORD v${window.appVersion || '1.0.8'}</p>
   </div>
   <div id="guideSections"></div>
 </div>`;

@@ -1,7 +1,7 @@
 {
-  "name": "rom-scraper",
+  "name": "afjord",
   "version": "1.0.8",
-  "description": "Internal desktop scraping tool for Ryan's Outdoor Media \u2014 automates media collection and content migration.",
+  "description": "AFJORD — Stealth acquisition engine for automated media collection and content migration.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -12,8 +12,8 @@
   },
   "build": {
     "appId": "com.ryansoutdoormedia.rom-scraper",
-    "productName": "ROM Scraper",
-    "copyright": "\u00a9 2025 Ryan's Outdoor Media",
+    "productName": "AFJORD",
+    "copyright": "© 2026 AFJORD",
     "publish": {
       "provider": "github",
       "owner": "Alucrob",
@@ -37,7 +37,7 @@
         }
       ],
       "icon": "assets/icon.ico",
-      "artifactName": "ROM-Scraper-Setup-${version}.exe"
+      "artifactName": "AFJORD-Setup-${version}.exe"
     },
     "nsis": {
       "oneClick": false,
@@ -45,7 +45,7 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "ROM Scraper",
+      "shortcutName": "AFJORD",
       "installerIcon": "assets/icon.ico",
       "uninstallerIcon": "assets/icon.ico",
       "installerHeaderIcon": "assets/icon.ico",
@@ -62,12 +62,12 @@
         }
       ],
       "icon": "assets/icon.png",
-      "artifactName": "ROM-Scraper-${version}.dmg",
+      "artifactName": "AFJORD-${version}.dmg",
       "category": "public.app-category.productivity",
       "darkModeSupport": true
     },
     "dmg": {
-      "title": "ROM Scraper ${version}",
+      "title": "AFJORD ${version}",
       "window": {
         "width": 540,
         "height": 380

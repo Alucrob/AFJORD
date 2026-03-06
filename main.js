@@ -65,6 +65,7 @@ function createLoadingWindow() {
     transparent: false,
     resizable: false,
     center: true,
+    icon: path.join(__dirname, 'assets', 'icon.ico'),
     webPreferences: { nodeIntegration: false, contextIsolation: true },
     show: false,
   });
@@ -81,6 +82,7 @@ function createUpdaterWindow(currentVersion, updateInfo) {
     frame: false,
     resizable: false,
     center: true,
+    icon: path.join(__dirname, 'assets', 'icon.ico'),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -297,7 +299,7 @@ ipcMain.on('open-folder', (event, folderPath) => {
 ipcMain.handle('save-log', async (event, logText) => {
   const result = await dialog.showSaveDialog(mainWindow, {
     title: 'Save Activity Log',
-    defaultPath: `rom_scraper_log_${Date.now()}.txt`,
+    defaultPath: `afjord_log_${Date.now()}.txt`,
     filters: [{ name: 'Text Files', extensions: ['txt'] }]
   });
   if (!result.canceled) { fs.writeFileSync(result.filePath, logText, 'utf8'); return true; }
@@ -308,7 +310,7 @@ ipcMain.handle('save-log', async (event, logText) => {
 ipcMain.handle('export-csv', async (event, csvData) => {
   const result = await dialog.showSaveDialog(mainWindow, {
     title: 'Export Results as CSV',
-    defaultPath: `rom_scraper_results_${Date.now()}.csv`,
+    defaultPath: `afjord_results_${Date.now()}.csv`,
     filters: [{ name: 'CSV Files', extensions: ['csv'] }]
   });
   if (!result.canceled) { fs.writeFileSync(result.filePath, csvData, 'utf8'); return true; }
@@ -319,7 +321,7 @@ ipcMain.handle('export-csv', async (event, csvData) => {
 ipcMain.handle('export-json', async (event, jsonData) => {
   const result = await dialog.showSaveDialog(mainWindow, {
     title: 'Export Results as JSON',
-    defaultPath: `rom_scraper_results_${Date.now()}.json`,
+    defaultPath: `afjord_results_${Date.now()}.json`,
     filters: [{ name: 'JSON Files', extensions: ['json'] }]
   });
   if (!result.canceled) { fs.writeFileSync(result.filePath, jsonData, 'utf8'); return true; }
@@ -820,7 +822,7 @@ ipcMain.handle('start-scrape', async (event, config) => {
 
   try {
     const ver = app.getVersion();
-    sendLog('START', `ROM Scraper v${ver} starting...`);
+    sendLog('START', `AFJORD v${ver} starting...`);
     sendLog('INFO', `Target: ${config.url}`);
     sendLog('INFO', `Output: ${outputDir}`);
     sendLog('INFO', `Mode: ${usePuppeteer ? '🌐 Puppeteer headless browser (JS rendering + cookies)' : '⚡ Standard HTTP fetch'}`);

@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROM Scraper — Update</title>
+<title>AFJORD — Update</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-deep:    #111112;
-  --bg-panel:   #111318;
-  --bg-card:    #181B23;
-  --bg-input:   #1E2130;
-  --accent:     #FF4D2E;
-  --accent2:    #FF7A5C;
-  --text-pri:   #F0F2FF;
-  --text-sec:   #8A91B0;
-  --text-dim:   #444A6A;
-  --border:     #252A3A;
-  --success:    #2ECC8A;
-  --error:      #FF4D2E;
+  --bg-deep:    #0A0A0B;
+  --bg-panel:   #0E0E10;
+  --bg-card:    #131315;
+  --bg-input:   #1A1A1E;
+  --accent:     #F0C230;
+  --accent2:    #FFD95C;
+  --text-pri:   #E8E8EC;
+  --text-sec:   #9898A8;
+  --text-dim:   #484858;
+  --border:     #1E1E24;
+  --success:    #3AD980;
+  --error:      #E04545;
   --mono: 'IBM Plex Mono', monospace;
 }
 
@@ -49,11 +49,11 @@ body {
 
 .logo {
   width: 48px; height: 48px;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
   border-radius: 10px;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 18px; font-weight: 700; color: #fff;
-  box-shadow: 0 0 24px rgba(255,77,46,0.4);
+  font-size: 18px; font-weight: 700; color: #0A0A0B;
+  box-shadow: 0 0 24px rgba(240,194,48,0.3);
   margin-bottom: 16px;
 }
 
@@ -79,7 +79,7 @@ body {
 }
 
 .ver-current { background: var(--bg-input); color: var(--text-sec); border: 1px solid var(--border); }
-.ver-new { background: rgba(255,77,46,0.1); color: var(--accent); border: 1px solid rgba(255,77,46,0.3); }
+.ver-new { background: rgba(240,194,48,0.1); color: var(--accent); border: 1px solid rgba(240,194,48,0.3); }
 .ver-arrow { color: var(--text-dim); font-size: 14px; }
 
 .release-notes {
@@ -93,12 +93,7 @@ body {
   max-height: 80px; overflow-y: auto;
 }
 
-/* ── Progress Bar ── */
-.progress-container {
-  display: none;
-  margin-bottom: 16px;
-}
-
+.progress-container { display: none; margin-bottom: 16px; }
 .progress-container.active { display: block; }
 
 .progress-bar-bg {
@@ -123,11 +118,8 @@ body {
   font-size: 9px; color: var(--text-sec); letter-spacing: 0.5px;
 }
 
-.progress-percent {
-  color: var(--accent); font-weight: 600;
-}
+.progress-percent { color: var(--accent); font-weight: 600; }
 
-/* ── Status message ── */
 .status-msg {
   font-size: 10px;
   color: var(--text-sec);
@@ -139,10 +131,7 @@ body {
 .status-msg.error { color: var(--error); }
 .status-msg.success { color: var(--success); }
 
-/* ── Buttons ── */
-.btn-row {
-  display: flex; gap: 10px; justify-content: center;
-}
+.btn-row { display: flex; gap: 10px; justify-content: center; }
 
 .btn {
   padding: 10px 20px;
@@ -152,15 +141,14 @@ body {
   cursor: pointer; transition: all 0.15s;
 }
 
-.btn:disabled {
-  opacity: 0.4; cursor: not-allowed;
-}
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .btn-primary {
-  background: var(--accent); color: #fff;
-  box-shadow: 0 0 16px rgba(255,77,46,0.3);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #0A0A0B;
+  box-shadow: 0 0 16px rgba(240,194,48,0.3);
 }
-.btn-primary:hover:not(:disabled) { background: #e6442a; box-shadow: 0 0 24px rgba(255,77,46,0.5); }
+.btn-primary:hover:not(:disabled) { box-shadow: 0 0 24px rgba(240,194,48,0.5); }
 
 .btn-ghost {
   background: transparent; color: var(--text-sec);
@@ -169,23 +157,23 @@ body {
 .btn-ghost:hover:not(:disabled) { background: var(--bg-input); color: var(--text-pri); }
 
 .btn-success {
-  background: var(--success); color: #111;
-  box-shadow: 0 0 16px rgba(46,204,138,0.3);
+  background: var(--success); color: #0A0A0B;
+  box-shadow: 0 0 16px rgba(58,217,128,0.3);
 }
-.btn-success:hover:not(:disabled) { background: #27b87a; }
+.btn-success:hover:not(:disabled) { background: #2ec670; }
 </style>
 </head>
 <body>
 
 <div class="updater-card">
-  <div class="logo">RS</div>
+  <div class="logo">AF</div>
   <div class="title">Update Available</div>
-  <div class="subtitle">A new version of ROM Scraper is ready</div>
+  <div class="subtitle">A new version of AFJORD is ready</div>
 
   <div class="version-row">
-    <span class="ver-tag ver-current" id="verCurrent">v—</span>
-    <span class="ver-arrow">→</span>
-    <span class="ver-tag ver-new" id="verNew">v—</span>
+    <span class="ver-tag ver-current" id="verCurrent">v--</span>
+    <span class="ver-arrow">&rarr;</span>
+    <span class="ver-tag ver-new" id="verNew">v--</span>
   </div>
 
   <div class="release-notes" id="releaseNotes">Loading release notes...</div>
@@ -222,13 +210,11 @@ function formatSpeed(bytesPerSec) {
   return (bytesPerSec / 1048576).toFixed(1) + ' MB/s';
 }
 
-// Strip HTML tags from release notes (GitHub sends HTML)
 function stripHtml(html) {
   if (!html) return '';
   return html.replace(/<[^>]*>/g, '').trim();
 }
 
-// Receive version info
 window.updaterAPI.onUpdateStatus((data) => {
   document.getElementById('verCurrent').textContent = 'v' + data.currentVersion;
   document.getElementById('verNew').textContent = 'v' + data.newVersion;
@@ -238,7 +224,6 @@ window.updaterAPI.onUpdateStatus((data) => {
   document.getElementById('releaseNotes').textContent = notes || 'See GitHub for details.';
 });
 
-// User clicks "Download & Install"
 function startDownload() {
   document.getElementById('btnDownload').disabled = true;
   document.getElementById('btnDownload').textContent = 'DOWNLOADING...';
@@ -246,38 +231,30 @@ function startDownload() {
   document.getElementById('progressContainer').classList.add('active');
   document.getElementById('statusMsg').textContent = 'Starting download...';
   document.getElementById('statusMsg').className = 'status-msg';
-
   window.updaterAPI.startDownload();
 }
 
-// Receive download progress
 window.updaterAPI.onUpdateProgress((data) => {
   const pct = Math.round(data.percent);
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressPercent').textContent = pct + '%';
-
   const detail = formatBytes(data.transferred) + ' / ' + formatBytes(data.total);
-  const speed = data.bytesPerSecond ? ' — ' + formatSpeed(data.bytesPerSecond) : '';
+  const speed = data.bytesPerSecond ? ' -- ' + formatSpeed(data.bytesPerSecond) : '';
   document.getElementById('progressDetail').textContent = detail + speed;
-
   document.getElementById('statusMsg').textContent = 'Downloading update... ' + pct + '%';
 });
 
-// Download complete
 window.updaterAPI.onUpdateComplete(() => {
   document.getElementById('progressFill').style.width = '100%';
   document.getElementById('progressPercent').textContent = '100%';
   document.getElementById('statusMsg').textContent = 'Download complete! Ready to install.';
   document.getElementById('statusMsg').className = 'status-msg success';
-
-  // Hide download button, show install button
   document.getElementById('btnDownload').style.display = 'none';
   document.getElementById('btnInstall').style.display = '';
   document.getElementById('btnSkip').disabled = false;
   document.getElementById('btnSkip').textContent = 'LATER';
 });
 
-// Error
 window.updaterAPI.onUpdateError((data) => {
   document.getElementById('statusMsg').textContent = 'Update error: ' + (data.message || 'Unknown error');
   document.getElementById('statusMsg').className = 'status-msg error';
@@ -286,7 +263,6 @@ window.updaterAPI.onUpdateError((data) => {
   document.getElementById('btnSkip').disabled = false;
 });
 
-// User clicks "Install & Restart"
 function installNow() {
   document.getElementById('btnInstall').disabled = true;
   document.getElementById('btnInstall').textContent = 'INSTALLING...';
@@ -295,7 +271,6 @@ function installNow() {
   window.updaterAPI.installUpdate();
 }
 
-// User clicks "Later"
 function skipUpdate() {
   window.updaterAPI.skipUpdate();
 }

@@ -1,14 +1,14 @@
-# ROM Scraper
+# AFJORD
 
-> Internal desktop scraping tool for Ryan's Outdoor Media — automates media collection and content migration across Facebook, Instagram, WordPress, Shopify, and more.
+> Stealth acquisition engine — automated media collection and content migration across Facebook, Instagram, WordPress, Shopify, and more.
 
 ---
 
 ## Overview
 
-ROM Scraper is a cross-platform desktop application built for the Ryan's Outdoor Media team. It streamlines website migrations and content gathering by automating the download of images, videos, and other media from client websites and social media platforms.
+AFJORD is a cross-platform desktop application for streamlining website migrations and content gathering. It automates the download of images, videos, and other media from websites and social media platforms.
 
-Built with Electron, it runs natively on both **Windows** and **macOS** and features a clean, modern interface with platform presets, session-based authentication for social media, and real-time download tracking.
+Built with Electron, it runs natively on both **Windows** and **macOS** and features a black and yellow stealth-themed interface with platform presets, session-based authentication for social media, ROMAGENT dynamic stealth orchestration, and real-time download tracking.
 
 ---
 
@@ -17,12 +17,13 @@ Built with Electron, it runs natively on both **Windows** and **macOS** and feat
 - **Platform Presets** — One-click configuration for Facebook, Instagram, Twitter/X, Pinterest, Flickr, Tumblr, Reddit, Squarespace, WordPress, Wix, Shopify, and custom URLs
 - **Session Cookie Authentication** — Scrape logged-in content from Facebook and Instagram by injecting your browser session cookies
 - **Headless Browser Engine** — Powered by Puppeteer, handles JavaScript-rendered pages that standard scrapers miss
+- **ROMAGENT Stealth Engine** — Dynamic orchestration of 15 anti-blocking methods with automatic escalation and domain-adaptive learning
 - **Smart Filtering** — Filter downloads by date range, content type (images, videos, documents, audio, fonts), and file size
 - **Crawl Options** — Configurable depth, delay, thread count, and max file limits
 - **Deduplication** — Automatically skips duplicate files based on content hash
 - **Real-time Results** — Live results table and activity log with status indicators
 - **Export** — Export results to CSV or JSON, save activity logs
-- **Built-in Instructions** — Contextual help sidebar with Quick Start, Settings explanations, and per-platform notes for team members
+- **Built-in Instructions** — Contextual help with Quick Start, Settings explanations, and per-platform notes
 
 ---
 
@@ -71,10 +72,10 @@ npm start
 
 ```bash
 # Windows installer (.exe)
-npm run build
+npm run build:win
 
-# Portable .exe (no install required)
-npm run build:portable
+# macOS dmg
+npm run build:mac
 ```
 
 Built files will appear in the `dist/` folder.
@@ -96,36 +97,41 @@ Facebook and Instagram block anonymous scraping. To scrape these platforms:
 1. Enable **Use session cookies** in the Session Cookies card
 2. Select your platform (Facebook / Instagram)
 3. Open Chrome and log into the platform
-4. Press **F12** → **Application** tab → **Cookies** → select the domain
+4. Press **F12** > **Application** tab > **Cookies** > select the domain
 5. Copy the required cookie values into the labeled fields:
    - **Facebook**: `c_user`, `xs`, `datr`, `fr`
    - **Instagram**: `sessionid`, `csrftoken`, `ds_user_id`
 6. Click **Start Scrape**
 
-> ⚠️ Keep cookie values private — they act as a temporary login to your account and expire after a few weeks.
+> Keep cookie values private -- they act as a temporary login to your account and expire after a few weeks.
 
 ### Crawl Settings Guide
 
 | Setting | Recommended | Description |
 |---|---|---|
-| Crawl Depth | 0–1 | 0 = current page only, 1 = follow links one level deep |
-| Delay | 0.5–2s | Wait between requests. Use 2s+ for social media |
+| Crawl Depth | 0-1 | 0 = current page only, 1 = follow links one level deep |
+| Delay | 0.5-2s | Wait between requests. Use 2s+ for social media |
 | Max Files | Start at 50 | Hard stop to prevent runaway downloads |
-| Timeout | 10–15s | How long to wait for slow servers |
+| Timeout | 10-15s | How long to wait for slow servers |
 
 ---
 
 ## Project Structure
 
 ```
-Rom-Scraper/
+AFJORD/
 ├── main.js              # Electron main process + scraping engine
 ├── package.json         # Dependencies and build config
 ├── version.json         # Current version (used by auto-updater)
 ├── src/
 │   ├── index.html       # Main application UI
 │   ├── loading.html     # Startup loading screen
-│   └── preload.js       # Electron context bridge
+│   ├── updater.html     # Auto-update UI
+│   ├── preload.js       # Electron context bridge
+│   ├── styles/          # Modular CSS (theme, layout, components, log, animations)
+│   ├── js/              # Modular JS (app, pages, components, stealth)
+│   └── agent/           # ROMAGENT stealth orchestration engine
+├── config/              # Stealth configuration
 └── assets/
     └── icon.ico         # App icon
 ```
@@ -134,25 +140,11 @@ Rom-Scraper/
 
 ## Updating the App
 
-ROM Scraper includes an auto-updater. When a new version is released:
+AFJORD includes an auto-updater. When a new version is released:
 
 1. Push updated files to this repository
 2. Bump the version number in `version.json`
-3. Team members will be notified automatically on next launch and prompted to update
-
----
-
-## For Team Members
-
-If you're a team member setting up ROM Scraper for the first time:
-
-1. Install [Node.js LTS](https://nodejs.org)
-2. Clone or download this repository
-3. Open a terminal in the project folder and run `npm install`
-4. Run `npm start` to launch the app
-5. Check the **Quick Start** tab in the app's right sidebar for usage instructions
-
-For questions or issues, contact your team lead.
+3. Users will be notified automatically on next launch and prompted to update
 
 ---
 
@@ -165,4 +157,4 @@ For questions or issues, contact your team lead.
 
 ---
 
-*Ryan's Outdoor Media — Internal Tool — Not for public distribution*
+*AFJORD — Stealth Acquisition Engine*

@@ -1,6 +1,5 @@
 ; ═══════════════════════════════════════════════════════
-;  ROM Scraper — Custom NSIS Installer Script
-;  Ryan's Outdoor Media
+;  AFJORD — Custom NSIS Installer Script
 ; ═══════════════════════════════════════════════════════
 
 !macro customHeader
@@ -12,22 +11,22 @@
 
 !macro customInstall
   ; Create desktop shortcut with custom icon
-  CreateShortCut "$DESKTOP\ROM Scraper.lnk" "$INSTDIR\ROM Scraper.exe" "" "$INSTDIR\ROM Scraper.exe" 0
+  CreateShortCut "$DESKTOP\AFJORD.lnk" "$INSTDIR\AFJORD.exe" "" "$INSTDIR\AFJORD.exe" 0
 
   ; Write install info to registry for Add/Remove Programs
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ROM Scraper" \
-    "DisplayName" "ROM Scraper"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ROM Scraper" \
-    "Publisher" "Ryan's Outdoor Media"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ROM Scraper" \
-    "DisplayVersion" "1.0.0"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ROM Scraper" \
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\AFJORD" \
+    "DisplayName" "AFJORD"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\AFJORD" \
+    "Publisher" "AFJORD"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\AFJORD" \
+    "DisplayVersion" "1.0.8"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\AFJORD" \
     "URLInfoAbout" "https://github.com/Alucrob/Rom-Scraper"
 !macroend
 
 !macro customUnInstall
   ; Clean up registry on uninstall
-  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\ROM Scraper"
+  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\AFJORD"
   ; Remove desktop shortcut
-  Delete "$DESKTOP\ROM Scraper.lnk"
+  Delete "$DESKTOP\AFJORD.lnk"
 !macroend

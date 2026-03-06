@@ -4,7 +4,7 @@
 
 .log-body {
   flex: 1; overflow-y: auto; padding: 8px 12px;
-  background: #131416;
+  background: #08080A;
   font-size: 11px; line-height: 1.75;
   font-family: var(--font-mono);
 }
@@ -48,7 +48,7 @@ thead th {
 }
 tbody tr { border-bottom: 1px solid rgba(255,255,255,0.02); cursor: pointer; transition: background 200ms; }
 tbody tr:hover { background: rgba(255,255,255,0.025); }
-tbody tr.sel { background: rgba(168,184,149,0.06); }
+tbody tr.sel { background: rgba(240,194,48,0.06); }
 tbody td {
   padding: 8px 12px; color: var(--text-sec);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px;

@@ -250,7 +250,7 @@ function render(container) {
   <div style="background:var(--bg-panel);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;">
     <div style="padding:14px 14px 10px;font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--border);flex-shrink:0;font-family:var(--font-mono);">Platform Presets</div>
     <div style="overflow-y:auto;flex:1;" id="presetList"></div>
-    <div style="padding:10px 12px;border-top:1px solid var(--border);font-size:8px;color:var(--text-dim);letter-spacing:1px;line-height:1.7;text-align:center;flex-shrink:0;font-family:var(--font-mono);" id="sbFooter">ROM SCRAPER v1.0.8<br>&copy; 2026 All rights reserved</div>
+    <div style="padding:10px 12px;border-top:1px solid var(--border);font-size:8px;color:var(--text-dim);letter-spacing:1px;line-height:1.7;text-align:center;flex-shrink:0;font-family:var(--font-mono);" id="sbFooter">AFJORD v${window.appVersion || '1.0.8'}<br>&copy; 2026 All rights reserved</div>
   </div>
 
   <!-- CENTER — Config -->
@@ -313,7 +313,7 @@ function render(container) {
       <div class="card-hdr">Output</div>
       <label class="field-lbl">Save Directory</label>
       <div class="out-row">
-        <input class="inp" id="outputDir" type="text" placeholder="C:\\Users\\YourName\\Downloads\\rom_scraper">
+        <input class="inp" id="outputDir" type="text" placeholder="C:\\Users\\YourName\\Downloads\\afjord">
         <button class="btn btn-secondary" id="browseDirBtn">BROWSE</button>
       </div>
       <div style="margin-top:10px">
