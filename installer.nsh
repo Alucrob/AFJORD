@@ -21,7 +21,7 @@
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\AFJORD" \
     "DisplayVersion" "1.0.8"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\AFJORD" \
-    "URLInfoAbout" "https://github.com/Alucrob/Rom-Scraper"
+    "URLInfoAbout" "https://github.com/Alucrob/AFJORD"
 !macroend
 
 !macro customUnInstall

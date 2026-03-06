@@ -42,7 +42,7 @@ try {
   autoUpdater.setFeedURL({
     provider: 'github',
     owner: 'Alucrob',
-    repo: 'Rom-Scraper',
+    repo: 'AFJORD',
   });
 } catch (e) {
   // electron-updater not available in dev mode — that's fine

@@ -17,7 +17,7 @@
     "publish": {
       "provider": "github",
       "owner": "Alucrob",
-      "repo": "Rom-Scraper"
+      "repo": "AFJORD"
     },
     "files": [
       "main.js",
