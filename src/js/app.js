@@ -45,7 +45,7 @@ function wireIPC() {
     if (fill) fill.style.width = '100%';
   });
 
-  // ROMAGENT events
+  // AFIND events
   if (window.romAPI.onAgentLog) {
     window.romAPI.onAgentLog(({ msg }) => {
       window.ActivityLog.addLog('AGENT', msg, 'lvl-agent');

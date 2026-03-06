@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   ROMAGENT — Dynamic Orchestration State Machine
+   AFIND — Dynamic Orchestration State Machine
    Runs in main process. Monitors scrape activity,
    detects blocks, and adapts stealth methods.
    ═══════════════════════════════════════════════════ */
@@ -25,7 +25,7 @@ const ESCALATION_ORDER = [
   'captcha-solver',
 ];
 
-class RomAgent {
+class AfindAgent {
   constructor() {
     this.active = false;
     this.domainStats = {};  // domain -> { successes, failures, lastMethod, methodScores }
@@ -45,13 +45,13 @@ class RomAgent {
     const baseline = ['user-agent-rotation', 'header-spoofing', 'referrer-spoofing', 'request-jitter', 'exponential-backoff', 'honeypot-detection'];
     baseline.forEach(id => stealth.setEnabled(id, true));
 
-    this.log('ROMAGENT initialized. Baseline stealth methods activated.');
+    this.log('AFIND initialized. Baseline stealth methods activated.');
     this.log(`Monitoring for blocks. Will escalate after ${this.maxConsecutiveBeforeEscalate} consecutive failures.`);
   }
 
   stop() {
     this.active = false;
-    this.log('ROMAGENT deactivated.');
+    this.log('AFIND deactivated.');
   }
 
   log(msg) {
@@ -147,4 +147,4 @@ class RomAgent {
   }
 }
 
-module.exports = { RomAgent };
+module.exports = { AfindAgent };

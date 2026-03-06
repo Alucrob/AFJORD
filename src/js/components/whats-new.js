@@ -202,7 +202,7 @@
       <div class="wn-change">
         <div class="wn-change-icon">&#9650;</div>
         <div class="wn-change-text">
-          <div class="wn-change-title">ROMAGENT Stealth Engine</div>
+          <div class="wn-change-title">AFIND Stealth Engine</div>
           <div class="wn-change-desc">15 anti-blocking methods with dynamic orchestration. The agent monitors failures and auto-escalates strategies in real-time.</div>
         </div>
       </div>

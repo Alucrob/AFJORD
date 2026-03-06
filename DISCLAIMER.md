@@ -34,7 +34,7 @@ AFJORD is a desktop media collection and content migration tool. It is designed 
 
 ## Stealth & Anti-Detection Features
 
-This software includes features designed to manage request patterns and HTTP headers (such as user-agent rotation, request jitter, header spoofing, and the ROMAGENT orchestration engine). These features exist to:
+This software includes features designed to manage request patterns and HTTP headers (such as user-agent rotation, request jitter, header spoofing, and the AFIND orchestration engine). These features exist to:
 
 - Reduce server load by implementing polite crawling practices (delays, backoff)
 - Maintain compatibility with websites that block default or empty user-agent strings

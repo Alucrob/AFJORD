@@ -7,8 +7,8 @@ const url = require('url');
 
 /* ── Stealth & Agent ── */
 const stealth = require('./src/js/stealth/stealth-manager');
-const { RomAgent } = require('./src/agent/romagent');
-const romAgent = new RomAgent();
+const { AfindAgent } = require('./src/agent/romagent');
+const afindAgent = new AfindAgent();
 stealth.loadConfig();
 
 /* ═══════════════════════════════════════════════════
@@ -659,9 +659,9 @@ ipcMain.handle('start-scrape', async (event, config) => {
     if (mainWindow) mainWindow.webContents.send('agent-log', { msg });
   };
 
-  // Start ROMAGENT if agent mode is enabled
+  // Start AFIND if agent mode is enabled
   if (stealth.isAgentMode()) {
-    romAgent.start(sendAgentLog);
+    afindAgent.start(sendAgentLog);
   }
   const sendResult = row => { if (mainWindow) mainWindow.webContents.send('result', row); };
   const sendProgress = pct => {
@@ -738,8 +738,8 @@ ipcMain.handle('start-scrape', async (event, config) => {
         sendLog('OK', `Downloaded: ${filename} (${formatSize(result.size)})`);
         sendProgress(Math.min(99, (downloaded / config.maxFiles) * 100));
 
-        // Feed success to ROMAGENT
-        try { const domain = new URL(imgUrl).hostname; romAgent.onRequestResult(domain, 200, true); } catch {}
+        // Feed success to AFIND
+        try { const domain = new URL(imgUrl).hostname; afindAgent.onRequestResult(domain, 200, true); } catch {}
 
       } catch (err) {
         errors++;
@@ -747,16 +747,16 @@ ipcMain.handle('start-scrape', async (event, config) => {
         sendResult({ status: 'error', filename, type: fileType, size: '—', date: '—', url: imgUrl });
         sendLog('ERR', `Failed: ${filename} — ${err.message}`);
 
-        // Feed failure to ROMAGENT
+        // Feed failure to AFIND
         const statusMatch = err.message.match(/HTTP (\d+)/);
         const statusCode = statusMatch ? parseInt(statusMatch[1]) : 0;
-        try { const domain = new URL(imgUrl).hostname; romAgent.onRequestResult(domain, statusCode, false); } catch {}
+        try { const domain = new URL(imgUrl).hostname; afindAgent.onRequestResult(domain, statusCode, false); } catch {}
       }
 
       // Apply delay: agent adaptive jitter or configured delay
       let delayMs = config.delay > 0 ? config.delay * 1000 : 0;
-      if (romAgent.active) {
-        try { const domain = new URL(imgUrl).hostname; delayMs = Math.max(delayMs, romAgent.getAdaptiveDelay(domain)); } catch {}
+      if (afindAgent.active) {
+        try { const domain = new URL(imgUrl).hostname; delayMs = Math.max(delayMs, afindAgent.getAdaptiveDelay(domain)); } catch {}
       } else if (stealth.isEnabled('request-jitter')) {
         delayMs = Math.max(delayMs, stealth.getJitterDelay());
       }
@@ -839,7 +839,7 @@ ipcMain.handle('start-scrape', async (event, config) => {
   }
 
   await closeBrowser();
-  if (romAgent.active) romAgent.stop();
+  if (afindAgent.active) afindAgent.stop();
   scrapeActive = false;
 });
 

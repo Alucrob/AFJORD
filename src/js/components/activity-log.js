@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   ACTIVITY LOG — Color-coded, ROMAGENT-aware
+   ACTIVITY LOG — Color-coded, AFIND-aware
    ═══════════════════════════════════════════════════ */
 
 const LVL_MAP = {

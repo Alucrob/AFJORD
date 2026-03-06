@@ -33,13 +33,13 @@ const SECTIONS = [
       <div class="guide-setting"><div class="gs-name">Timeout</div><div class="gs-val">10-15 seconds</div><div class="gs-desc">How long to wait for a slow server before moving on.</div></div>`
   },
   {
-    title: 'Stealth & ROMAGENT',
+    title: 'Stealth & AFIND',
     open: false,
     content: `
-      <div class="guide-tip tip-green"><strong>ROMAGENT Mode</strong> dynamically controls the 15 stealth methods. When enabled, the agent observes failures and automatically switches strategies.</div>
+      <div class="guide-tip tip-green"><strong>AFIND Mode</strong> dynamically controls the 15 stealth methods. When enabled, the agent observes failures and automatically switches strategies.</div>
       <div class="guide-tip"><strong>Manual Mode:</strong> Toggle individual stealth methods in Settings &rarr; Stealth &amp; Anti-Blocking tab.</div>
-      <div class="guide-tip tip-blue"><strong>Recommended for beginners:</strong> Enable ROMAGENT mode and let it handle everything automatically.</div>
-      <div class="guide-setting"><div class="gs-name">How ROMAGENT works</div><div class="gs-desc">The agent monitors the activity log in real-time. When a request fails (403, 429, etc.), it automatically cycles to a different stealth method, re-attempts the request, and learns which methods work best for specific domains.</div></div>`
+      <div class="guide-tip tip-blue"><strong>Recommended for beginners:</strong> Enable AFIND mode and let it handle everything automatically.</div>
+      <div class="guide-setting"><div class="gs-name">How AFIND works</div><div class="gs-desc">The agent monitors the activity log in real-time. When a request fails (403, 429, etc.), it automatically cycles to a different stealth method, re-attempts the request, and learns which methods work best for specific domains.</div></div>`
   },
   {
     title: 'Platform Notes',
@@ -60,7 +60,7 @@ const SECTIONS = [
       <div class="guide-tip tip-green"><strong style="color:var(--success)">OK</strong> &mdash; File downloaded successfully</div>
       <div class="guide-tip" style="border-left-color:var(--warning)"><strong style="color:var(--warning)">WARN</strong> &mdash; Skipped or rate limited</div>
       <div class="guide-tip" style="border-left-color:var(--error)"><strong style="color:var(--error)">ERR</strong> &mdash; Failed to download</div>
-      <div class="guide-tip" style="border-left-color:var(--agent)"><strong style="color:var(--agent)">AGENT</strong> &mdash; ROMAGENT action or decision</div>`
+      <div class="guide-tip" style="border-left-color:var(--agent)"><strong style="color:var(--agent)">AGENT</strong> &mdash; AFIND action or decision</div>`
   },
 ];
 

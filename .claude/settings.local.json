@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const p=require\\(''./node_modules/electron/package.json''\\); console.log\\(''electron npm version:'', p.version\\);\")",
+      "Bash(\"C:/Users/Aiden Robbins/AppData/Local/Microsoft/WindowsApps/python.exe\" -c \"from PIL import Image, ImageDraw, ImageFont; print\\(''Pillow ready''\\)\")"
+    ]
+  }
+}

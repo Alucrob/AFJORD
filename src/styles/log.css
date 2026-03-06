@@ -25,7 +25,7 @@
 .lvl-skip   { color: var(--text-dim); }
 .lvl-preset { color: var(--tip); }
 
-/* ROMAGENT level — sage green */
+/* AFIND level — sage green */
 .lvl-agent  { color: var(--agent); }
 
 /* Agent messages get a subtle left border highlight */

@@ -62,14 +62,14 @@ function renderStealthTab(container) {
     <div class="agent-banner ${agentMode ? 'visible' : ''}" id="agentBanner">
       <div class="agent-banner-icon">&#x1F916;</div>
       <div class="agent-banner-text">
-        <div class="agent-banner-title">ROMAGENT Active</div>
+        <div class="agent-banner-title">AFIND Active</div>
         <div class="agent-banner-desc">The agent is dynamically controlling all stealth methods. Manual toggles are disabled.</div>
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:8px 0;">
       <div class="toggle-wrap ${agentMode ? 'on' : ''}" id="agentModeToggle">
         <div class="toggle ${agentMode ? 'on' : ''}"></div>
-        <span style="font-weight:600;letter-spacing:0.5px;">ROMAGENT Mode</span>
+        <span style="font-weight:600;letter-spacing:0.5px;">AFIND Mode</span>
       </div>
       <span style="font-size:10px;color:var(--text-dim);">When enabled, the agent dynamically controls all stealth methods</span>
     </div>`;

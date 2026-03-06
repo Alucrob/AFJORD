@@ -8,7 +8,7 @@
 
 AFJORD is a cross-platform desktop application for streamlining website migrations and content gathering. It automates the download of images, videos, and other media from websites and social media platforms.
 
-Built with Electron, it runs natively on both **Windows** and **macOS** and features a black and yellow stealth-themed interface with platform presets, session-based authentication for social media, ROMAGENT dynamic stealth orchestration, and real-time download tracking.
+Built with Electron, it runs natively on both **Windows** and **macOS** and features a black and yellow stealth-themed interface with platform presets, session-based authentication for social media, AFIND dynamic stealth orchestration, and real-time download tracking.
 
 ---
 
@@ -17,7 +17,7 @@ Built with Electron, it runs natively on both **Windows** and **macOS** and feat
 - **Platform Presets** — One-click configuration for Facebook, Instagram, Twitter/X, Pinterest, Flickr, Tumblr, Reddit, Squarespace, WordPress, Wix, Shopify, and custom URLs
 - **Session Cookie Authentication** — Scrape logged-in content from Facebook and Instagram by injecting your browser session cookies
 - **Headless Browser Engine** — Powered by Puppeteer, handles JavaScript-rendered pages that standard scrapers miss
-- **ROMAGENT Stealth Engine** — Dynamic orchestration of 15 anti-blocking methods with automatic escalation and domain-adaptive learning
+- **AFIND Stealth Engine** — Dynamic orchestration of 15 anti-blocking methods with automatic escalation and domain-adaptive learning
 - **Smart Filtering** — Filter downloads by date range, content type (images, videos, documents, audio, fonts), and file size
 - **Crawl Options** — Configurable depth, delay, thread count, and max file limits
 - **Deduplication** — Automatically skips duplicate files based on content hash
@@ -130,7 +130,7 @@ AFJORD/
 │   ├── preload.js       # Electron context bridge
 │   ├── styles/          # Modular CSS (theme, layout, components, log, animations)
 │   ├── js/              # Modular JS (app, pages, components, stealth)
-│   └── agent/           # ROMAGENT stealth orchestration engine
+│   └── agent/           # AFIND stealth orchestration engine
 ├── config/              # Stealth configuration
 └── assets/
     └── icon.ico         # App icon
