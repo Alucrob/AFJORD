@@ -1,4 +1,4 @@
-name: Build & Release ROM Scraper
+name: Build & Release AFJORD
 on:
   push:
     tags:
@@ -26,7 +26,7 @@ jobs:
         with:
           name: windows-installer
           path: |
-            dist/ROM-Scraper-Setup-*.exe
+            dist/*.exe
             dist/latest.yml
 
   build-mac:
@@ -69,7 +69,7 @@ jobs:
         with:
           name: mac-installer
           path: |
-            dist/ROM-Scraper-*.dmg
+            dist/*.dmg
             dist/latest-mac.yml
 
   release:
@@ -99,13 +99,13 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          name: ROM Scraper v${{ steps.version.outputs.version }}
+          name: AFJORD v${{ steps.version.outputs.version }}
           body: ${{ steps.version.outputs.notes }}
           draft: false
           prerelease: false
           files: |
-            dist/ROM-Scraper-Setup-*.exe
-            dist/ROM-Scraper-*.dmg
+            dist/*.exe
+            dist/*.dmg
             dist/latest.yml
             dist/latest-mac.yml
         env:
