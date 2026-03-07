@@ -67,6 +67,13 @@ async function initApp() {
   const tbVer = document.getElementById('tbVersion');
   if (tbVer) tbVer.textContent = 'v' + appVersion + ' -- AFJORD';
 
+  // Load app settings
+  if (window.romAPI && window.romAPI.getAppSettings) {
+    try {
+      window._appSettings = await window.romAPI.getAppSettings();
+    } catch {}
+  }
+
   // Load stealth defaults
   if (window.romAPI && window.romAPI.getStealthConfig) {
     try {

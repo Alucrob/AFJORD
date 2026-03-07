@@ -18,6 +18,9 @@ contextBridge.exposeInMainWorld('romAPI', {
 
   // App info
   getVersion: () => ipcRenderer.invoke('get-version'),
+  getAppSettings: () => ipcRenderer.invoke('get-app-settings'),
+  updateAppSettings: (cfg) => ipcRenderer.invoke('update-app-settings', cfg),
+  resetAppSettings: () => ipcRenderer.invoke('reset-app-settings'),
 
   // Stealth config
   getStealthConfig:    () => ipcRenderer.invoke('get-stealth-config'),

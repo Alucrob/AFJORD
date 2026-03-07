@@ -4,12 +4,81 @@ const fs = require('fs');
 const https = require('https');
 const http = require('http');
 const url = require('url');
+const { spawn } = require('child_process');
 
 /* ── Stealth & Agent ── */
 const stealth = require('./src/js/stealth/stealth-manager');
 const { AfindAgent } = require('./src/agent/romagent');
 const afindAgent = new AfindAgent();
 stealth.loadConfig();
+
+const DEFAULT_APP_SETTINGS = {
+  app: {
+    autoCheckUpdates: true,
+    minimizeToTray: true,
+    openDevToolsOnLaunch: false,
+    playSounds: true,
+  },
+  defaults: {
+    depth: 0,
+    delay: 0.5,
+    maxFiles: 200,
+    timeout: 10,
+  },
+  connection: {
+    proxyEnabled: false,
+    proxyType: 'http',
+    proxyHost: '',
+    proxyUsername: '',
+    proxyPassword: '',
+    captchaService: 'none',
+    captchaApiKey: '',
+    rateLimitConcurrent: 3,
+    rateLimitPerMinute: 30,
+  },
+};
+
+let appSettings = JSON.parse(JSON.stringify(DEFAULT_APP_SETTINGS));
+
+function isPlainObject(value) {
+  return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+function mergeDeep(base, override) {
+  const out = isPlainObject(base) ? { ...base } : {};
+  if (!isPlainObject(override)) return out;
+  for (const [key, value] of Object.entries(override)) {
+    if (isPlainObject(value) && isPlainObject(out[key])) {
+      out[key] = mergeDeep(out[key], value);
+    } else {
+      out[key] = value;
+    }
+  }
+  return out;
+}
+
+function getSettingsPath() {
+  return path.join(app.getPath('userData'), 'settings.json');
+}
+
+function loadAppSettings() {
+  const defaults = JSON.parse(JSON.stringify(DEFAULT_APP_SETTINGS));
+  try {
+    const raw = fs.readFileSync(getSettingsPath(), 'utf8');
+    const parsed = JSON.parse(raw);
+    return mergeDeep(defaults, parsed);
+  } catch {
+    return defaults;
+  }
+}
+
+function saveAppSettings() {
+  try {
+    fs.writeFileSync(getSettingsPath(), JSON.stringify(appSettings, null, 2), 'utf8');
+  } catch (err) {
+    console.error('Failed to save app settings:', err.message);
+  }
+}
 
 /* ═══════════════════════════════════════════════════
    SINGLE INSTANCE LOCK
@@ -38,6 +107,9 @@ try {
   autoUpdater.autoDownload = false;
   autoUpdater.autoInstallOnAppQuit = true;
   autoUpdater.allowDowngrade = false;
+  if ('autoRunAppAfterInstall' in autoUpdater) {
+    autoUpdater.autoRunAppAfterInstall = true;
+  }
   // Point to your GitHub repo
   autoUpdater.setFeedURL({
     provider: 'github',
@@ -54,6 +126,29 @@ let mainWindow;
 let loadingWindow;
 let updaterWindow;
 let updateDownloaded = false;
+const MAC_BUNDLE_ID = 'com.ryansoutdoormedia.rom-scraper';
+
+function applyDevToolsPreference() {
+  if (!mainWindow || mainWindow.isDestroyed()) return;
+  const shouldOpen = !!appSettings?.app?.openDevToolsOnLaunch;
+  const isOpen = mainWindow.webContents.isDevToolsOpened();
+  if (shouldOpen && !isOpen) {
+    mainWindow.webContents.openDevTools({ mode: 'detach' });
+  } else if (!shouldOpen && isOpen) {
+    mainWindow.webContents.closeDevTools();
+  }
+}
+
+function scheduleMacRelaunch() {
+  if (process.platform !== 'darwin') return;
+  // Squirrel.Mac occasionally fails to relaunch after install from older builds.
+  // Fallback: relaunch by bundle id after a short delay.
+  const child = spawn('sh', ['-c', `sleep 8; open -b "${MAC_BUNDLE_ID}" || true`], {
+    detached: true,
+    stdio: 'ignore',
+  });
+  child.unref();
+}
 
 /* ══════════════════════════════════════════
    LOADING WINDOW
@@ -141,6 +236,7 @@ function createWindow() {
         loadingWindow = null;
       }
       mainWindow.show();
+      applyDevToolsPreference();
     }, 3000);
   });
 
@@ -240,6 +336,11 @@ ipcMain.on('start-update-download', () => {
 // Step 2: Download finishes → user sees "Install & Restart" → they click it
 ipcMain.on('install-update', () => {
   if (autoUpdater && updateDownloaded) {
+    if (process.platform === 'darwin') {
+      scheduleMacRelaunch();
+      autoUpdater.quitAndInstall();
+      return;
+    }
     // Prevent the app from just closing without installing
     app.removeAllListeners('window-all-closed');
     if (updaterWindow && !updaterWindow.isDestroyed()) updaterWindow.destroy();
@@ -258,6 +359,11 @@ ipcMain.on('skip-update', () => {
 
 
 app.whenReady().then(() => {
+  appSettings = loadAppSettings();
+  if (appSettings?.app?.autoCheckUpdates === false) {
+    createWindow();
+    return;
+  }
   createLoadingWindow();
   // Check for updates first — updater decides whether to show main app or update window
   setupAutoUpdater();
@@ -274,6 +380,19 @@ ipcMain.on('win-maximize', () => {
 ipcMain.on('win-close', () => mainWindow?.close());
 
 ipcMain.handle('get-version', () => app.getVersion());
+ipcMain.handle('get-app-settings', () => appSettings);
+ipcMain.handle('update-app-settings', (event, partialSettings) => {
+  appSettings = mergeDeep(appSettings, partialSettings || {});
+  saveAppSettings();
+  applyDevToolsPreference();
+  return appSettings;
+});
+ipcMain.handle('reset-app-settings', () => {
+  appSettings = JSON.parse(JSON.stringify(DEFAULT_APP_SETTINGS));
+  saveAppSettings();
+  applyDevToolsPreference();
+  return appSettings;
+});
 
 /* ── Stealth config IPC ── */
 ipcMain.handle('get-stealth-config', () => stealth.getConfig());
